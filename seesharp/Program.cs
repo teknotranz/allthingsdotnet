@@ -7,13 +7,22 @@ namespace Seesharp
         private static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+
+            //initialize an array of nullabe persons
+            var persons = new Person?[]
+            {
+                new Person("John", 30),
+                null,
+                new Person("Jane", 25)
+            };
+
+
         }
     }
 
     class Intro
     {
 
-        //how to make regions so that coaelesce section is something collapse and expand in visual studio
         #region Coalesce
         string test = "test";
         //coalesce operator
@@ -29,13 +38,20 @@ namespace Seesharp
         }
         #endregion
 
-        public void nameof()
+        #region NameOfExample
+        public static void NameOfExample()
         {
-            // The nameof operator returns the  simple name of a variable, type, or member as a string.
-            // It is useful for avoiding hard-coded strings in your code.
-            //string name = nameof(test);
-            //Console.WriteLine(name);
+            // The nameof operator returns the simple name of a variable, type, or member as a string.
+            string testVariable = "example";
+            string variableName = nameof(testVariable);
+            Console.WriteLine($"The name of the variable is: {variableName}");
+
+            // Example with a class and property
+            Person person = new Person("John", 30);
+            string propertyName = nameof(person.Name);
+            Console.WriteLine($"The name of the property is: {propertyName}");
         }
+        #endregion
     }
 
     class Person
